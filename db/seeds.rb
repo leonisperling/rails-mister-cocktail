@@ -1,7 +1,7 @@
 require 'json'
 require 'open-uri'
 
-puts 'Creating ingredients'
+puts 'Creating ingredients...'
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 response = URI.open(url).read
@@ -15,4 +15,4 @@ ingredients.each do |hash|
   Ingredient.create!(name: hash['strIngredient1'])
 end
 
-puts 'ingredients created'
+puts 'Ingredients created!'
