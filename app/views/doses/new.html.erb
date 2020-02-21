@@ -1,7 +1,11 @@
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :description %>
-  <%= f.submit %>
-
-<% end %>
-
 <%= link_to 'Home', cocktails_path %>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <div>
+    <%= f.association :ingredient, collection: Ingredient.all, input_html: { multiple: true, include_hidden: false } %>
+    <%= f.input :description %>
+  </div>
+  <div>
+    <%= f.button :submit %>
+  </div>
+<% end %>
